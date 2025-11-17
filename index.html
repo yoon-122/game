@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>비밀 플레시 감성 - 악어 슈터</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&family=Do+Hyeon&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <h1>비공개 귀여운 악어 슈터</h1>
+        <p>
+          2000년대 초반 감성으로 즐기는 미니 총쏘기 게임!<br />
+          마우스로 조준하고 클릭으로 물방울 총알을 발사하세요.
+        </p>
+      </div>
+      <button id="resetButton" type="button">다시 시작</button>
+    </header>
+
+    <main>
+      <section class="game-wrapper">
+        <canvas id="gameCanvas" width="960" height="540" aria-label="게임 화면"></canvas>
+        <article class="hud" aria-live="polite">
+          <div><strong>점수</strong><span id="score">0</span></div>
+          <div><strong>체력</strong><span id="hp">3</span></div>
+          <div><strong>라운드</strong><span id="round">1 / 15</span></div>
+          <div><strong>최고 점수</strong><span id="best-score">0</span></div>
+          <div class="hint">TIP: 이동은 WASD, 발사는 마우스 클릭, 일시정지 P</div>
+        </article>
+      </section>
+
+      <section class="instructions">
+        <h2>게임 방법</h2>
+        <ul>
+          <li>이동은 <strong>WASD</strong>, 발사는 <strong>마우스 클릭</strong>으로만 가능합니다.</li>
+          <li>사막 마을을 지키는 귀여운 악어 루루를 움직여 하늘에서 내려오는 새 무리를 물총으로 막아내세요. 10라운드부터는 2번, 20라운드부터는 3번 맞춰야 쓰러집니다.</li>
+          <li>라운드는 총 15개이며, 라운드마다 힐팩이 한 번 등장하고 마지막에는 보스가 나타납니다.</li>
+          <li>힐팩을 먹으면 체력이 1 회복되고, 보스는 사방으로 탄막을 펼치니 조심하세요.</li>
+          <li>몬스터를 처치할수록 점수가 오르며, 콤보를 이어가면 추가 점수를 받습니다.</li>
+          <li>언제든 <strong>다시 시작</strong> 버튼으로 리셋 가능합니다.</li>
+        </ul>
+      </section>
+    </main>
+<!-- ★ 모바일 조작 UI (반드시 body 안에 넣어야 함) -->
+<div class="mobile-controls">
+  <!-- 왼쪽 조이스틱 -->
+  <div id="joystick">
+    <div id="joystick-base"></div>
+    <div id="joystick-stick"></div>
+  </div>
+
+  <!-- 오른쪽 발사 버튼 -->
+  <button id="fire-button">FIRE</button>
+</div>
+    <footer>
+      <small>© 2025 비밀 프로젝트 · 오프라인 플레시 감성 리메이크</small>
+    </footer>
+
+    <script src="game.js"></script>
+  </body>
+</html>
