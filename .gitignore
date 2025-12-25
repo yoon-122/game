@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# 백업 파일
+* 복사본.*
+* backup.*
+*~
+
+# 에디터
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
