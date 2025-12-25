@@ -876,7 +876,16 @@ function drawBackground() {
 function drawPlayer() {
   ctx.save();
   ctx.translate(player.x, player.y);
-  const angle = Math.atan2(mouse.y - player.y, mouse.x - player.x);
+  
+  // 조이스틱이 활성화되어 있으면 조이스틱 방향으로, 아니면 마우스/터치 방향으로
+  let angle;
+  if (joystick.active && (Math.abs(joystick.stickX) > 5 || Math.abs(joystick.stickY) > 5)) {
+    // 조이스틱 방향으로 플레이어가 바라보도록
+    angle = Math.atan2(joystick.stickY, joystick.stickX);
+  } else {
+    // PC 마우스 또는 모바일 터치 조준 방향
+    angle = Math.atan2(mouse.y - player.y, mouse.x - player.x);
+  }
   ctx.rotate(angle);
 
   // tail
